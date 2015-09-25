@@ -8,8 +8,7 @@ def open_image(path):
 		image = Image.open(path)
 	except Exception as e:
 		print("Image not found")
-		print(e)
-		return
+		exit(1)
 	return image
 
 
