@@ -1,15 +1,22 @@
 # python-image-manipulator
 A simple image manipulator in Python
 
+Includes 3 programs:
+1. rotation.py - Rotate an image
+2. blend.py - Blend two images together
+3. text_overlay.py - Overlay an image on text
 
+The programs can be found in the root directory of this archive
+Two folders are provided for testing purposes:
+    - Images - Contains several images that can be used for testing.
+    - Font - For the text overlay program, two free fonts.
 
+# How to run: Text overlay
+python text_overlay.py [image path] [text] [font size]
+For more information such as optional variables, please use
+python text_overlay.py --help
 
-
-
-
-
-
-# How to run blend program
+# How to run: Blend
 in the terminal, type:
 	python blend.py images/source.jpg image/dest.jpg 0.5
 
