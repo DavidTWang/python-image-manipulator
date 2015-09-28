@@ -52,32 +52,47 @@ def main(argv):
 	#
 	##############################################################################
 
-	srcPixels = list(sourceImg.getdata())
-	destPixels = list(destImg.getdata())
-	finalPixels = list(result.getdata())
+	# srcPixels = list(sourceImg.getdata())
+	# destPixels = list(destImg.getdata())
+	# finalPixels = list(result.getdata())
 
-	count = 0
-	for pixels in srcPixels:
-		srcR = pixels[0]
-		srcG = pixels[1]
-		srcB = pixels[2]
-		dstR = destPixels[count][0]
-		dstG = destPixels[count][1]
-		dstB = destPixels[count][2]
+	# count = 0
+	# for pixels in srcPixels:
+	# 	srcR = pixels[0]
+	# 	srcG = pixels[1]
+	# 	srcB = pixels[2]
+	# 	dstR = destPixels[count][0]
+	# 	dstG = destPixels[count][1]
+	# 	dstB = destPixels[count][2]
 
-		finalR = int(srcR * (1-alpha)) + int(dstR * alpha)
-		finalG = int(srcG * (1-alpha)) + int(dstG * alpha)
-		finalB = int(srcB * (1-alpha)) + int(dstB * alpha)
+	# 	finalR = int(srcR * (1-alpha)) + int(dstR * alpha)
+	# 	finalG = int(srcG * (1-alpha)) + int(dstG * alpha)
+	# 	finalB = int(srcB * (1-alpha)) + int(dstB * alpha)
 
-		finalPixels[count] = (finalR, finalG, finalB)
+	# 	finalPixels[count] = (finalR, finalG, finalB)
 
-		count = count + 1
+	# 	count = count + 1
 
-	result.putdata(finalPixels)
+	# result.putdata(finalPixels)
 	
+	# result.save("blend_result.jpg")
+	# result.show()
+
+
+
+	for i in range(0, result.width):
+		for j in range(0, result.height):
+			s = sourceImg.getpixel((i,j))
+			d = destImg.getpixel((i,j))
+			
+			r = int(s[0] * (1-alpha)) + int(d[0] * alpha)
+			g = int(s[1] * (1-alpha)) + int(d[1] * alpha)
+			b = int(s[2] * (1-alpha)) + int(d[2] * alpha)
+
+			result.putpixel((i,j), (r,g,b))
+
 	result.save("blend_result.jpg")
 	result.show()
-
 
 
 	# # check alpha value
@@ -114,14 +129,3 @@ if __name__ == '__main__':
 
 
 
-
-	# for i in range(0, result.width):
-	# 	for j in range(0, result.height):
-	# 		s = sourceImg.getpixel((i,j))
-	# 		d = destImg.getpixel((i,j))
-			
-	# 		r = int(s[0] * (1-alpha)) + int(d[0] * alpha)
-	# 		g = int(s[1] * (1-alpha)) + int(d[1] * alpha)
-	# 		b = int(s[2] * (1-alpha)) + int(d[2] * alpha)
-
-	# 		result.putpixel((i,j), (r,g,b))
